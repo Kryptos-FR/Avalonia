@@ -15,6 +15,10 @@
                         <MenuItem Header="Submenu _1"/>
                         <MenuItem Header="Submenu _2"/>
                     </MenuItem>
+                    <MenuItem Header="_Another Menu with Submenu">
+                        <MenuItem Header="Another Submenu _1"/>
+                        <MenuItem Header="Another Submenu _2"/>
+                    </MenuItem>
                     <MenuItem Header="Menu Item with _Icon">
                         <MenuItem.Icon>
                             <Image Source="resm:ControlCatalog.Assets.github_icon.png"/>

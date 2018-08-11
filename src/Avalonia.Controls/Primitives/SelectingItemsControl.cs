@@ -457,6 +457,29 @@ namespace Avalonia.Controls.Primitives
             }
         }
 
+        protected bool MoveSelection(NavigationDirection direction, bool wrap)
+        {
+            var from = SelectedIndex != -1 ? ItemContainerGenerator.ContainerFromIndex(SelectedIndex) : null;
+            return MoveSelection(from, direction, wrap);
+        }
+
+        protected bool MoveSelection(IControl from, NavigationDirection direction, bool wrap)
+        {
+            if (Presenter?.Panel is INavigableContainer container &&
+                GetNextControl(container, direction, from, wrap) is IControl next)
+            {
+                var index = ItemContainerGenerator.IndexFromContainer(next);
+
+                if (index != -1)
+                {
+                    SelectedIndex = index;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /// <summary>
         /// Updates the selection for an item based on user interaction.
         /// </summary>
